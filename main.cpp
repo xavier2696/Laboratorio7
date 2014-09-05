@@ -53,6 +53,28 @@ int main(int argc,char* argv[]){
 				cin>>opcion3;
 				//opcion nivel 3
 				if(opcion3==1){
+						string nombre,tipo,lugar;
+						int huella,evidencia;
+						bool verdadero;
+						cout<<"Ingrese el nombre: "<<endl;
+						getline(cin,nombre);
+						cout<<"ingrese tipo de objeto: "<<endl;
+						getline(cin,tipo);
+						cout<<"Ingrese lugar donde se encontro el objeto: "<<endl;
+						getline(cin,lugar);
+						do{
+						cout<<"Habia huellas 1/S o 0/N"<<endl;
+						cin>>huella;
+						if(huella==1){
+ 								verdadero=true;
+						}else if(huella==2){
+								verdadero=false;
+						}
+					   }while(huella !=2  && huella != 1);
+						cout<<"Fue procesada la evidencia"<<endl;
+						cin>>evidencia;
+						ls_evidencias.push_back(new Evidencia(nombre,tipo,lugar,verdadero,true));
+
 
 				}else{
 					cout<<"OPCION NO ENCONTRADA"<<endl;

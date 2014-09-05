@@ -2,7 +2,9 @@
 #include "persona.h"
 #include "Caso.h"
 #include <string>
-class Investigador: public Persona{
+using namespace std;
+
+class Investigador : public Persona {
 	int numerocasos;
 	int cerrados;
 	int sinresolver;

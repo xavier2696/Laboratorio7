@@ -4,7 +4,7 @@
 #include "persona.h"
 #include "Evidencias.h"
 #include <vector>
-
+using namespace std;
 using std::string;
 
 class Caso{

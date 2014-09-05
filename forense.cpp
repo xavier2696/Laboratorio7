@@ -1,7 +1,9 @@
 #include "persona.h"
 #include "forense.h"
+#include "Caso.h"
 #include<sstream>
 #include<string>
+#include<typeinfo>
 Forense::Forense(string nombre,string usuario,string password,int edad
 ,string id,string fecha,string ingreso,string horario):Persona(nombre,usuario,password,edad,id,fecha),ingreso(ingreso),horario(horario){}
 string Forense::toString()const{
@@ -21,4 +23,9 @@ void Forense::setIngreso(string ingreso){
 void Forense::setHorario(string horario){
 	this->horario=horario;
 }
-//void Forense:: visualizar(Caso c){}
+void Forense:: visualizar(Caso *c){
+	if(typeid(c)==typeid(Homicidio*)
+		cout<<c->toString()<<endl
+		if(typeid(c)==typeid(Homicidio*)
+			cout<<c->toString()<<endl;
+}

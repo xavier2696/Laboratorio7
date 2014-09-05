@@ -1,5 +1,6 @@
 #pragma once
 #include "persona.h"
+#include "Caso.h"
 #include <string>
 class Investigador: public Persona{
 	int numerocasos;
@@ -14,5 +15,5 @@ class Investigador: public Persona{
 	void setNumerocasos(int);
 	void setCerrados(int);
 	void setSinResolver(int);
-	//virtual void visualizar(Caso)const;
+	virtual void visualizar(const Caso*);
 };

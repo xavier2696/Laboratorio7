@@ -1,5 +1,6 @@
 #include "persona.h"
 #include "investigador.h"
+#include "Caso.h"
 #include<sstream>
 #include<string>
 Investigador::Investigador(string nombre,string usuario,string password,int edad,
@@ -28,5 +29,6 @@ void Investigador::setCerrados(int cerrados){
 void Investigador::setSinResolver(int sinresolver){
 	this->sinresolver=sinresolver;
 }
-/*void Investigador::visualizar(Caso)const{
-}*/
+void Investigador::visualizar(Caso*c)const{
+	cout<<c->toString()<<endl;
+}

@@ -1,6 +1,6 @@
 #pragma once
 #include<string>
-//#include "Caso.h"
+#include "Caso.h"
 
 using namespace std;
 class Persona{
@@ -13,7 +13,7 @@ class Persona{
 	public:
 	Persona(string,string,string,int,string,string);
 	virtual string toString() const;
-	//virtual visualizar(Caso c) const=0;
+	virtual visualizar(const Caso*)=0;
 	string getNombre()const;
 	string getUsuario()const;
 	string getPassword()const;

@@ -1,7 +1,10 @@
 #include "persona.h"
 #include "administrativo.h"
+#include "Caso.h"
+#include "Secuestro.h"
 #include<string>
 #include<sstream>
+#include<typeinfo>
 using namespace std;
 Administrativo::Administrativo(string nombre,string usuario,string password,int edad,string id,string fecha,string clave,string puesto)
 :Persona(nombre,usuario,password,edad,id,fecha),clave(clave),puesto(puesto){}
@@ -22,8 +25,10 @@ void Administrativo::setClave(string clave){
 void Administrativo::setPuesto(string puesto){
 	this->puesto=puesto;
 }
-/*void Administrativo::visualizar(caso c){
-
+void Administrativo::visualizar(const Caso *c){
+	if(typeid(c)==typeid(Secuestro*))
+		cout<<c->toString()<<endl;
+	 
 }
-*/
+
 

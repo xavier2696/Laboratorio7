@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-class Evidencias{
+class Evidencia{
 	    string nombre;
 		string tipo_objeto; //arma blanca arma de fuego evidencia circunstancial
 		string lugar_encontrado;
@@ -10,7 +10,7 @@ class Evidencias{
 		bool procesada;
 	public:
 		//constructor
-		Evidencias(string,string,string,bool,bool);
+		Evidencia(string,string,string,bool,bool);
 		//los set
 		void setnombre(string);
 		void settipo_objeto(string);

@@ -5,19 +5,15 @@
 using std::string;
 using std::stringstream;
 
-Caso::Caso(int numero,Investigador* investidagores,Evidencia* evidencias, string hora, string fecha,bool cerrado):numero(numero),investigadores(investigadores),evidencias(evidencias),hora(hora),fecha(fecha),cerrado(cerrado){
-}
-Caso::~Caso(){
-	delete investigadores;
-	delete evidencias;
+Caso::Caso(int numero,vector<Investigador> investidagores,vector<Evidencia> evidencias, string hora, string fecha,bool cerrado):numero(numero),investigadores(investigadores),evidencias(evidencias),hora(hora),fecha(fecha),cerrado(cerrado){
 }
 int Caso::getNumero() const{
 	return numero;
 }
-Investigador* Caso::getInvestigadores() const{
+vector<Investigador> Caso::getInvestigadores() const{
 	return investigadores;
 }
-Evidencia* Caso::getEvidencias() const{
+vector<Evidencia> Caso::getEvidencias() const{
 	return evidencias;
 }
 string Caso::getHora() const{
@@ -32,10 +28,10 @@ bool Caso::isCerrado() const{
 void Caso::setNumero(int numero){
 	this->numero = numero;
 }
-void Caso::setInvestigadores(Investigador* investigadores){
+void Caso::setInvestigadores(vector<Investigador> investigadores){
 	this->investigadores = investigadores;
 }
-void Caso::setEvidencias(Evidencia* evidencias){
+void Caso::setEvidencias(vector<Evidencia> evidencias){
 	this->evidencias = evidencias;
 }
 void Caso::setHora(string hora){

@@ -5,17 +5,16 @@
 using std::string;
 
 class Homicidio:public Caso{
-	string* nombres;
+	vector<string> nombres;
 	string sospechoso;
 	string victima;
   public:
-  	Homicidio(int,Investigador*,Evidencia*, string, string ,bool,string*,string,string);
-	~Homicidio();
+  	Homicidio(int,vector<Investigador>,vector<Evidencia>, string, string ,bool,vector<string>,string,string);
 	virtual string toString() const;
-	string* getNombres() const;
+	vector<string> getNombres() const;
 	string getSospechoso() const;
 	string getVictima() const;
-	void setNombres(string*);
+	void setNombres(vector<string>);
 	void setSospechoso(string);
 	void setVictima(string);
 };

@@ -5,9 +5,21 @@
 using std::string;
 using std::stringstream;
 
-Secuestro::Secuestro(int numero,Investigador* investigadores,Evidencia* evidencias, string fecha, string hora,bool cerrado,string victima,string motivo,string lugar,bool rescate,int cantidad,bool vivo):Caso(numero,investigadores,evidencias,fecha,hora,cerrado),victima(victima),motivo(motivo),lugar(lugar),rescate(rescate),cantidad(cantidad),vivo(vivo){
+Secuestro::Secuestro(int numero,vector<Investigador> investigadores,vector<Evidencia> evidencias, string fecha, string hora,bool cerrado,string victima,string motivo,string lugar,bool rescate,int cantidad,bool vivo):Caso(numero,investigadores,evidencias,fecha,hora,cerrado),victima(victima),motivo(motivo),lugar(lugar),rescate(rescate),cantidad(cantidad),vivo(vivo){
 }
 string Secuestro::toString() const{
+	stringstream ss;
+	ss<<"Caso Numero: "<<getNumero()<<"\nInvestigadores: ";
+	for(int i = 0; i<getInvestigadores().size(); i++){
+		ss<<getInvestigadores()[i].getNombre()<<", ";	
+	}
+	ss<<"\nEvidencias: ";
+	for (int i = 0; i<getEvidencias().size(); i++){
+		ss<<getEvidencias()[i].getnombre()<<", ";	
+	}
+	ss<<"\nFecha: "<<getFecha()<<"\nHora: "<<getHora()<<"Cerrado: "<<isCerrado()?"Si":"No";
+	ss<<"\nVictima: "<<victima<<"\nMotivo: "<<motivo<<"\nLugar: "<<lugar<<"\nRescate: "<<(isRescate()?"Si":"No")<<"\nCantidad: "<<cantidad<<"\nVivo: "<<(isVivo()?"Si":"No");
+	return ss.str();
 }
 string Secuestro::getVictima() const{
 	return victima;

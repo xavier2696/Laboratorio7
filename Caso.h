@@ -3,28 +3,28 @@
 #include "investigador.h"
 #include "persona.h"
 #include "Evidencias.h"
+#include <vector>
 
 using std::string;
 
 class Caso{
 	int numero;
-	Investigador* investigadores;
-	Evidencia* evidencias;
+	vector<Investigador> investigadores;
+	vector<Evidencia> evidencias;
 	string hora;
 	string fecha;
 	bool cerrado;
   public:
-    Caso(int,Investigador*,Evidencia*, string, string ,bool);
-	~Caso();
+    Caso(int,vector<Investigador>,vector<Evidencia>, string, string ,bool);
 	int getNumero() const;
-	Investigador* getInvestigadores() const;
-	Evidencia* getEvidencias() const;
+	vector<Investigador> getInvestigadores() const;
+	vector<Evidencia> getEvidencias() const;
 	string getHora() const;
 	string getFecha() const;
 	bool isCerrado() const;
 	void setNumero(int);
-	void setInvestigadores(Investigador*);
-	void setEvidencias(Evidencia*);
+	void setInvestigadores(vector<Investigador>);
+	void setEvidencias(vector<Evidencia>);
 	void setHora(string);
 	void setFecha(string);
 	void setCerrado(bool);

@@ -21,6 +21,7 @@ int main(int argc,char* argv[]){
 		cout<<"1-Agregar"<<endl;
 		cout<<"2-Modificar"<<endl;
 		cout<<"3-Eliminar"<<endl;
+		cout<<"4-reporte"<<endl;
 		cin>>opcion;
 		if (opcion==1){
 			int opcion2;
@@ -116,45 +117,45 @@ int main(int argc,char* argv[]){
 				cin>>opcion3;
 				//opcion nivel 3
 				if(opcion3==1){
-						string nombre,lugar,objeto1;
-						int huella,evidencia,tipo;
-						bool verdadero;
-						cout<<"Ingrese el nombre: "<<endl;
-						getline(cin,nombre);
-  						
+					string nombre,lugar,objeto1;
+					int huella,evidencia,tipo;
+					bool verdadero;
+					cout<<"Ingrese el nombre: "<<endl;
+					getline(cin,nombre);
+
 						///////////////////////////////////
-						cout<<"1-Arma de fuego "<<endl;
-						cout<<"2.Arma blanca "<<endl;
-						cout<<"3-Evidencia circunstancial: "<<endl;
-						cout<<"Elija tipo de objeto: "<<endl;
-						cin>>tipo;
-						if(tipo==1){
-                            objeto1="Arma de fuego";
-						}else if(tipo==2){
-							objeto1="Arma blanca";
-						}else{
-							objeto1="Evidencia circunstancial:";
-						}
-						cout<<"Ingrese lugar donde se encontro el objeto: "<<endl;
-						getline(cin,lugar);
-						do{
+					cout<<"1-Arma de fuego "<<endl;
+					cout<<"2.Arma blanca "<<endl;
+					cout<<"3-Evidencia circunstancial: "<<endl;
+					cout<<"Elija tipo de objeto: "<<endl;
+					cin>>tipo;
+					if(tipo==1){
+						objeto1="Arma de fuego";
+					}else if(tipo==2){
+						objeto1="Arma blanca";
+					}else{
+						objeto1="Evidencia circunstancial:";
+					}
+					cout<<"Ingrese lugar donde se encontro el objeto: "<<endl;
+					getline(cin,lugar);
+					do{
 						cout<<"Habia huellas 1/S o 0/N"<<endl;
 						cin>>huella;
 						if(huella==1){
- 								verdadero=true;
+							verdadero=true;
 						}else if(huella==2){
-								verdadero=false;
+							verdadero=false;
 						}
-					   }while(huella !=2  && huella != 1);
-						cout<<"Fue procesada la evidencia 1/S 0/n "<<endl;
-						cin>>evidencia;
-						bool si;
-						if(evidencia==1){
-                             si=true;
-						}else{
-							si=false;
-						}
-						ls_evidencias.push_back(new Evidencia(nombre,objeto1,lugar,verdadero,si));
+					}while(huella !=2  && huella != 1);
+					cout<<"Fue procesada la evidencia 1/S 0/n "<<endl;
+					cin>>evidencia;
+					bool si;
+					if(evidencia==1){
+						si=true;
+					}else{
+						si=false;
+					}
+					ls_evidencias.push_back(new Evidencia(nombre,objeto1,lugar,verdadero,si));
 
 
 				}else{
@@ -206,16 +207,54 @@ int main(int argc,char* argv[]){
 					cout<<"OPCION NO ENCONTRADA"<<endl;
 				}
 			}else if(opcion2==2){
-		        	//modificar Evidencias
-				int opcion3;
-				cout<<"1-objetos de evidencia"<<endl;
-				cin>>opcion3;
-					//opcion nivel 3
-				if(opcion3==1){
-
-				}else{
-					cout<<"OPCION NO ENCONTRADA"<<endl;
+		       	int posicion;
+				cout<<":::::::::::Modificar Evidencias:::::::::::"<<endl;
+				for (int i = 0; i < ls_evidencias.size(); i++){
+					cout<<i<<" - "<<ls_evidencias[i]->toString()<<endl;
 				}
+				cout<<"Elija la posicion a Modificar"<<endl;
+				cin>>posicion;
+
+					string nombre,lugar,objeto1;
+					int huella,evidencia,tipo;
+					bool verdadero;
+					cout<<"Ingrese el nombre: "<<endl;
+					getline(cin,nombre);
+                    ls_evidencias[posicion]->setnombre(nombre);
+					cout<<"1-Arma de fuego "<<endl;
+					cout<<"2.Arma blanca "<<endl;
+					cout<<"3-Evidencia circunstancial: "<<endl;
+					cout<<"Elija tipo de objeto: "<<endl;
+					cin>>tipo;
+					if(tipo==1){
+						objeto1="Arma de fuego";
+					}else if(tipo==2){
+						objeto1="Arma blanca";
+					}else{
+						objeto1="Evidencia circunstancial:";
+					}
+					ls_evidencias[posicion]->settipo_objeto(objeto1);
+					cout<<"Ingrese lugar donde se encontro el objeto: "<<endl;
+					getline(cin,lugar);
+					ls_evidencias[posicion]->setlugar_encontrado(lugar);
+						cout<<"Habia huellas 1/S o 0/N"<<endl;
+						cin>>huella;
+						if(huella==1){
+							verdadero=true;
+						}else if(huella==2){
+							verdadero=false;
+						}
+					ls_evidencias[posicion]->sethuella(verdadero);
+					cout<<"Fue procesada la evidencia 1/S 0/n "<<endl;
+					cin>>evidencia;
+					bool si;
+					if(evidencia==1){
+						si=true;
+					}else{
+						si=false;
+					}
+					ls_evidencias[posicion]->setprocesada(si);
+
 			}else if(opcion2==3){
 		        	//modificar  casos
 				int opcion3;
@@ -243,52 +282,52 @@ int main(int argc,char* argv[]){
 			cout<<"3-Gestión de casos:"<<endl;
 			cin>>opcion2;
 			if(opcion2==1){
-				int opcion3;
-				cout<<"1-Personal administrativo:"<<endl;
-				cout<<"2-Investigador:"<<endl;
-				cout<<"3-Forense:"<<endl;
-				cin>>opcion3;
-				//opcion nivel 3
-				if(opcion3==1){
-
-				}else if(opcion3==2){
-
-				}else if(opcion3==3){
-
-				}else{
-					cout<<"OPCION NO ENCONTRADA"<<endl;
+				int posicion;
+				cout<<":::::::::::Eliminar personal administrativo:::::::::::"<<endl;
+				for (int i = 0; i < ls_persona.size(); i++){
+					cout<<i<<" - "<<ls_persona[i]->toString()<<endl;
 				}
+				cout<<"Elija la posicion a eliminar"<<endl;
+				cin>>posicion;
+				ls_persona.erase (ls_persona.begin()+posicion);
+				cout<<":::::::::::Eliminado con exito:::::::::::"<<endl;
+				
 			}else if(opcion2==2){
-				int opcion3;
-				cout<<"1-objetos de evidencia"<<endl;
-				cin>>opcion3;
-				//opcion nivel 3
-				if(opcion3==1){
-
-				}else{
-					cout<<"OPCION NO ENCONTRADA"<<endl;
+				int posicion;
+				cout<<":::::::::::Eliminar Evidencias:::::::::::"<<endl;
+				for (int i = 0; i < ls_evidencias.size(); i++){
+					cout<<i<<" - "<<ls_evidencias[i]->toString()<<endl;
 				}
+				cout<<"Elija la posicion a eliminar"<<endl;
+				cin>>posicion;
+				ls_evidencias.erase (ls_evidencias.begin()+posicion);
+				cout<<":::::::::::Eliminado con exito:::::::::::"<<endl;
 			}else if(opcion2==3){
-				int opcion3;
-				cout<<"1-Homicidio:"<<endl;
-				cout<<"2-Secuestro:"<<endl;
-				cin>>opcion3;
-				if(opcion3==1){
-
-				}else if(opcion3==2){
-
-				}else {
-					cout<<"OPCION NO ENCONTRADA"<<endl;
+				int posicion;
+				cout<<":::::::::::Eliminar Casos:::::::::::"<<endl;
+				for (int i = 0; i < ls_caso.size(); i++){
+					cout<<i<<" - "<<ls_caso[i]->toString()<<endl;
 				}
+				cout<<"Elija la posicion a eliminar"<<endl;
+				cin>>posicion;
+			    for(int i =0; i< ls_caso[posicion]->getEvidencias().size(); i++){
+			    	delete ls_caso[posicion]->getEvidencias()[i];
+			    }
+			    ls_caso.erase (ls_caso.begin()+posicion);
+			    cout<<":::::::::::Eliminado con exito:::::::::::"<<endl;
 			}else{
 				cout<<"OPCION NO ENCONTRADA"<<endl;
 			}
+		}else if(opcion==4){
+				cout<<"1-Reporte de personal:"<<endl;
+			    cout<<"2-Reporte de evidencias:"<<endl;
+			     cout<<"3-Reporte de casos:"<<endl;
 		}else{
 			cout<<"OPCION NO ENCONTRADA"<<endl;
 		}
 		cout<<"Desea seguir SI=1 NO=0"<<endl;
 		cin>>seguir;
-    }while(seguir !=0);
+	}while(seguir !=0);
 	for (int i = 0;i <ls_persona.size();i++)
 		delete ls_persona[i];
 	for (int i = 0; i<ls_evidencias.size(); i++)

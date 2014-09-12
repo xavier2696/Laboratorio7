@@ -263,9 +263,9 @@ int main(int argc,char* argv[]){
 						rescate = false;
 					if(rescate){
 						cout << "Ingrese la cantidad de dinero que solicitan: ";
-						cin >> rescate;
+						cin >> cantidad;
 					}else
-						rescate = 0;
+						cantidad = 0;
 					cout <<"Ingrese s si esta vivo: ";
 					cin >> respuesta;
 					if(respuesta ='s')
@@ -554,13 +554,155 @@ int main(int argc,char* argv[]){
 
 			}else if(opcion2==3){
 		        	//modificar  casos
+
 				int opcion3;
 				cout<<"1-Homicidio:"<<endl;
 				cout<<"2-Secuestro:"<<endl;
 				cin>>opcion3;
 				if(opcion3==1){
+					cout << "Homicidios: ";
+					for(int i = 0; i<ls_caso.size(); i++){
+						if(typeid(*ls_caso[i]) == typeid(Homicidio)){
+							cout << "["<<ls_caso[i]->toString()<<" Posicion: "<<i<<"]";
+						}
+					}
+					int pos;
+					cout <<endl <<"Ingrese la posicion que desea modificar: ";
+					cin >> pos;
 
+					int numero;
+					vector<Evidencia*> evidencias;
+					string fecha, hora;
+					bool cerrado;
+					vector<string> nombres;
+					string sospechoso, victima;
+					cout << "Ingrese el numero del caso: ";
+					cin >> numero;
+					ls_caso[pos]->setNumero(numero);
+					cout << "Evidencias "<<endl;
+					for (int i = 0; i<ls_evidencias.size(); i++){
+						cout <<"["<< ls_evidencias[i]->getnombre()<<"]";
+					}
+					int posicion;
+					do{
+						cout << "Ingrese la posicion de la evidencia que desea agregar(Ingrese -1 para dejar de agregar):";
+						cin >> posicion;
+						if(posicion>=0 && posicion<ls_evidencias.size()){
+							Evidencia* e = new Evidencia(evidencias[posicion]->getnombre(),evidencias[posicion]->gettipo_objeto(),evidencias[posicion]->getlugar_encontrada(),evidencias[posicion]->gethuella(),evidencias[posicion]->getprocesada());
+							evidencias.push_back(e);						
+						}
+					}while(posicion>=0);
+					ls_caso[pos]->setEvidencias(evidencias);
+					cout << "Ingrese la fecha: ";
+					cin >> fecha;
+					ls_caso[pos]->setFecha(fecha);
+					cout << "Ingrese la hora: ";
+					cin >> hora;
+					ls_caso[pos]->setHora(hora);
+					char respuesta;
+					cout << "Ingrese s si esta cerrado el caso: ";
+					cin >> respuesta;
+					if(respuesta == 's')
+						cerrado = true;
+					else
+						cerrado = false;
+					ls_caso[pos]->setCerrado(cerrado);
+					string nombretemp;
+					do{
+						cout << "Ingrese los nombres sospechosos(0 para dejar de ingresar): ";
+						cin >> nombretemp;
+						if (nombretemp != "0")
+							nombres.push_back(nombretemp);
+					}while(nombretemp != "0");
+					dynamic_cast<Homicidio*>(ls_caso[pos])->setNombres(nombres);
+					cout <<"Ingrese el sospechoso principal: ";
+					cin >> sospechoso;
+					dynamic_cast<Homicidio*>(ls_caso[pos])->setSospechoso(sospechoso);
+					cout << "Ingrese la victima: ";
+					cin >> victima;
+					dynamic_cast<Homicidio*>(ls_caso[pos])->setVictima(victima);
+					cout << "El Homicidio fue modificado"<<endl;
 				}else if(opcion3==2){
+					cout << "Secuestros"<<endl;
+					for(int i = 0; i<ls_caso.size(); i++){
+						if(typeid(*ls_caso[i])==typeid(Secuestro)){
+							cout << "["<<ls_caso[i]->toString()<<" Posicion: "<<i<<"]";
+						}
+					}
+					int pos;
+					cout <<endl <<"Ingrese la posicion que desea modificar: ";
+					cin >> pos;
+					
+
+					int numero;
+					vector<Evidencia*> evidencias;
+					string fecha, hora;
+					bool cerrado;
+					string victima, motivo, lugar;
+					bool rescate;
+					int cantidad;
+					bool vivo;
+					cout << "Ingrese el numero del caso: ";
+					cin >> numero;
+					ls_caso[pos]->setNumero(numero);
+					cout << "Evidencias "<<endl;
+					for (int i = 0; i<ls_evidencias.size(); i++){
+						cout <<"["<< ls_evidencias[i]->getnombre()<<"]";
+					}
+					int posicion;
+					do{
+						cout << "Ingrese la posicion de la evidencia que desea agregar(Ingrese -1 para dejar de agregar):";
+						cin >> posicion;
+						if(posicion>=0 && posicion<ls_evidencias.size()){
+							Evidencia* e = new Evidencia(evidencias[posicion]->getnombre(),evidencias[posicion]->gettipo_objeto(),evidencias[posicion]->getlugar_encontrada(),evidencias[posicion]->gethuella(),evidencias[posicion]->getprocesada());
+							evidencias.push_back(e);						
+						}
+					}while(posicion>=0);
+					ls_caso[pos]->setEvidencias(evidencias);
+					cout << "Ingrese la fecha: ";
+					cin >> fecha;
+					ls_caso[pos]->setFecha(fecha);
+					cout << "Ingrese la hora: ";
+					cin >> hora;
+					ls_caso[pos]->setHora(hora);
+					char respuesta;
+					cout << "Ingrese s si esta cerrado el caso: ";
+					cin >> respuesta;
+					if(respuesta == 's')
+						cerrado = true;
+					else
+						cerrado = false;
+					ls_caso[pos]->setCerrado(cerrado);
+					cout << "Ingrese la victima: ";
+					cin >> victima;
+					dynamic_cast<Secuestro*>(ls_caso[pos])->setVictima(victima);
+					cout << "Ingrese el motivo: ";
+					cin >> motivo;
+					dynamic_cast<Secuestro*>(ls_caso[pos])->setMotivo(motivo);
+					cout << "Ingrese el lugar: ";
+					cin >> lugar;
+					dynamic_cast<Secuestro*>(ls_caso[pos])->setLugar(lugar);
+					cout << "Ingrese s si pide rescate: ";
+					cin >> respuesta;
+					if(respuesta = 's')
+						rescate = true;
+					else
+						rescate = false;
+					dynamic_cast<Secuestro*>(ls_caso[pos])->setRescate(rescate);
+					if(rescate){
+						cout << "Ingrese la cantidad de dinero que solicitan: ";
+						cin >> cantidad;
+					}else
+						cantidad = 0;
+					dynamic_cast<Secuestro*>(ls_caso[pos])->setCantidad(cantidad);
+					cout <<"Ingrese s si esta vivo: ";
+					cin >> respuesta;
+					if(respuesta ='s')
+						vivo = true;
+					else
+						vivo = false;
+					dynamic_cast<Secuestro*>(ls_caso[pos])->setVivo(vivo);
+					cout << "El Secuestro fue modificado"<<endl;
 
 				}else {
 					cout<<"OPCION NO ENCONTRADA"<<endl;

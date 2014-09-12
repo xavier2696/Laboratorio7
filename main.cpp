@@ -304,7 +304,7 @@ int main(int argc,char* argv[]){
 					int posicion;
 					for(int i=0;i<ls_persona.size(); i++){
 						if(typeid(*ls_persona[i]).name()==typeid(Administrativo).name())
-							cout<<ls_persona[i]->toString()<<endl;
+							cout<<i<<"-"<<ls_persona[i]->getNombre()<<endl;
 					}
 					cout<<"Seleccione la posicion a modificar"<<endl;
 					cin>>posicion;
@@ -354,26 +354,26 @@ int main(int argc,char* argv[]){
 							cin>> clave;
 							dynamic_cast<Administrativo*>(ls_persona[posicion])->setClave(clave);
 						}
-					if(eleccion==7){
-						cout<<"Ingrese Puesto"<<endl;
-						string puesto;
-						cin>> puesto;
-						dynamic_cast<Administrativo*>(ls_persona[posicion])->setPuesto(puesto);
+						if(eleccion==8){
+							cout<<"Ingrese Puesto"<<endl;
+							string puesto;
+							cin>> puesto;
+							dynamic_cast<Administrativo*>(ls_persona[posicion])->setPuesto(puesto);
 
-					}
-				}
+						}
+					}		
 
 				}else if(opcion3==2){
                                         int posicion;
 					for(int i=0;i<ls_persona.size(); i++){
 						if(typeid(*ls_persona[i]).name()==typeid(Investigador).name())
-							cout<<ls_persona[i]->toString()<<endl;
+							cout<<i<<"-"<<ls_persona[i]->getNombre()<<endl;
 					}
 					cout<<"Seleccione la posicion a modificar"<<endl;
 					cin>>posicion;
 					int eleccion;
 
-					cout<<"1.Nombre\n2.Usuario\n3.Password\n4.Edad\n5.Id\n6.Fecha\n7.Numero de Casos\n8.Casos"<<"Cerrados\n9.Casos sin Resol					ver"<<endl;
+					cout<<"1.Nombre\n2.Usuario\n3.Password\n4.Edad\n5.Id\n6.Fecha\n7.Numero de Casos\n8.Casos"<<"Cerrados\n9.Casos sin resolver"<<endl;
 					cin>>eleccion;
 					if(eleccion==1){
 						cout<<"Ingrese Nombre"<<endl;
@@ -439,7 +439,7 @@ int main(int argc,char* argv[]){
 					int posicion;
 					for(int i=0;i<ls_persona.size(); i++){
 						if(typeid(*ls_persona[i]).name()==typeid(Forense).name())
-							cout<<ls_persona[i]->toString()<<endl;
+							cout<<i<<"-"<<ls_persona[i]->getNombre()<<endl;
 					}
 					cout<<"Seleccione la posicion a modificar"<<endl;
 					cin>>posicion;
@@ -618,7 +618,19 @@ int main(int argc,char* argv[]){
 		}else if(opcion==4){
 				cout<<"1-Reporte de personal:"<<endl;
 			    cout<<"2-Reporte de evidencias:"<<endl;
-			     cout<<"3-Reporte de casos:"<<endl;
+			    cout<<"3-Reporte de casos:"<<endl;
+				int opcionr;
+				cin>>opcionr;
+				if(opcionr==1){
+					for(int i=0;i<ls_persona.size();i++)
+						cout<<ls_persona[i]->toString()<<endl;
+				}
+				if(opcionr==2){
+				}
+				if(opcionr==3){
+					for(int i=0;i<ls_caso.size();i++)
+						cout<<ls_caso[i]->toString()<<endl;
+				}
 		}else{
 			cout<<"OPCION NO ENCONTRADA"<<endl;
 		}

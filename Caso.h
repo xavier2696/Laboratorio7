@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "investigador.h"
+
 #include "persona.h"
 #include "Evidencias.h"
 #include <vector>
@@ -9,22 +9,20 @@ using std::string;
 
 class Caso{
 	int numero;
-	vector<Investigador> investigadores;
-	vector<Evidencia> evidencias;
+	
+	vector<Evidencia*> evidencias;
 	string hora;
 	string fecha;
 	bool cerrado;
   public:
-    Caso(int,vector<Investigador>,vector<Evidencia>, string, string ,bool);
+    Caso(int,vector<Evidencia*>, string, string ,bool);
 	int getNumero() const;
-	vector<Investigador> getInvestigadores() const;
-	vector<Evidencia> getEvidencias() const;
+	vector<Evidencia*> getEvidencias() const;
 	string getHora() const;
 	string getFecha() const;
 	bool isCerrado() const;
 	void setNumero(int);
-	void setInvestigadores(vector<Investigador>);
-	void setEvidencias(vector<Evidencia>);
+	void setEvidencias(vector<Evidencia*>);
 	void setHora(string);
 	void setFecha(string);
 	void setCerrado(bool);

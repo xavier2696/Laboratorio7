@@ -60,9 +60,52 @@ int main(int argc,char* argv[]){
 					Administrativo* temp = new Administrativo(nombre,usuario,password,edad,id,fecha,clave,puesto);
 					ls_persona.push_back(temp);
 				}else if(opcion3==2){
-
+					string nombre, usuario, password;
+					int edad;
+					string id, fecha;
+					int numerocasos,cerrados,sinresolver;
+					cout <<"Ingrese el nombre ";
+					cin >> nombre;
+					cout <<"Ingrese usuario: ";
+					cin >> usuario;
+					cout << "Ingrese el password ";
+					cin >> password;
+					cout << "Ingrese la edad: ";
+					cin >> edad;
+					cout << "Ingrese la id: ";
+					cin >> id;
+					cout << "Ingrese la fecha: ";
+					cin >> fecha;
+					cout << "Ingrese el numero casos: ";
+					cin >> numerocasos;
+					cout << "Ingrese el numero de casos cerrados: ";
+					cin >> cerrados;
+					cout << "Ingrese el numero de casos sin resolver: ";
+					cin >> sinresolver;
+					Investigador* temp = new Investigador(nombre,usuario,password,edad,id,fecha,numerocasos,cerrados,sinresolver);
+					ls_persona.push_back(temp);
 				}else if(opcion3==3){
-
+					string nombre, usuario, password;
+					int edad;
+					string id, fecha,ingreso,horario;
+					cout << "Ingrese el nombre: ";
+					cin >> nombre;
+					cout << "Ingrese el usuario: ";
+					cin >> usuario;
+					cout << "Ingrese el password: ";
+					cin >> password;
+					cout << "Ingrese el edad";
+					cin >> edad;
+					cout << "Ingrese la id: ";
+					cin >> id;
+					cout << "Ingrese la fecha: ";
+					cin >> fecha;
+					cout<< "Ingrese el ingreso: ";
+					cin >> ingreso;
+					cout << "Ingrese el horario: ";
+					cin >> horario;
+					Forense* temp = new Forense(nombre,usuario,password,edad,id,fecha,ingreso,horario);
+					ls_persona.push_back(temp);
 				}else{
 					cout<<"OPCION NO ENCONTRADA"<<endl;
 				}

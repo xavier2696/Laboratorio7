@@ -5,15 +5,12 @@
 using std::string;
 using std::stringstream;
 
-Homicidio::Homicidio(int numero,vector<Investigador> investigadores,vector<Evidencia> evidencias, string fecha, string hora,bool cerrado,vector<string> nombres ,string sospechoso ,string victima):Caso(numero,investigadores,evidencias,fecha,hora,cerrado),nombres(nombres),sospechoso(sospechoso),victima(victima){}
+Homicidio::Homicidio(int numero,vector<Evidencia> evidencias, string fecha, string hora,bool cerrado,vector<string> nombres ,string sospechoso ,string victima):Caso(numero,evidencias,fecha,hora,cerrado),nombres(nombres),sospechoso(sospechoso),victima(victima){}
 
 
 string Homicidio::toString() const{
 	stringstream ss;
-	ss<<"Caso Numero: "<<getNumero()<<"\nInvestigadores: ";
-	for(int i = 0; i<getInvestigadores().size(); i++){
-		ss<<getInvestigadores()[i].getNombre()<<", ";	
-	}
+	ss<<"Caso Numero: "<<getNumero();
 	ss<<"\nEvidencias: ";
 	for (int i = 0; i<getEvidencias().size(); i++){
 		ss<<getEvidencias()[i].getnombre()<<", ";	

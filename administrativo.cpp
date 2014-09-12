@@ -1,6 +1,5 @@
 #include "persona.h"
 #include "administrativo.h"
-#include "Caso.h"
 #include "Secuestro.h"
 #include<string>
 #include<sstream>
@@ -25,10 +24,6 @@ void Administrativo::setClave(string clave){
 void Administrativo::setPuesto(string puesto){
 	this->puesto=puesto;
 }
-void Administrativo::visualizar(const Caso *c){
-	if(typeid(c)==typeid(Secuestro*))
-		cout<<c->toString()<<endl;
-	 
-}
+
 
 

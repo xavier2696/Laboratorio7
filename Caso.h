@@ -1,8 +1,8 @@
 #pragma once
-#include <string>
 #include "investigador.h"
 #include "persona.h"
 #include "Evidencias.h"
+#include <string>
 #include <vector>
 
 using std::string;

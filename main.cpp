@@ -10,6 +10,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <typeinfo>
 using namespace std;
 int main(int argc,char* argv[]){
 	int seguir;
@@ -197,10 +198,204 @@ int main(int argc,char* argv[]){
 				cin>>opcion3;
 						//opcion nivel 3
 				if(opcion3==1){
+					int posicion;
+					for(int i=0;i<ls_persona.size(); i++){
+						if(typeid(*ls_persona[i]).name()==typeid(Administrativo).name())
+							cout<<ls_persona[i]->toString()<<endl;
+					}
+					cout<<"Seleccione la posicion a modificar"<<endl;
+					cin>>posicion;
+					int eleccion;
+					cout<<"1.Nombre\n2.Usuario\n3.Password\n4.Edad\n5.Id\n6.Fecha\n7.Clave\n8.Puesto"<<endl;
+					cin>>eleccion;
+					if(eleccion==1){
+						cout<<"Ingrese Nombre"<<endl;
+						string nombre;
+						cin>>nombre;
+						ls_persona[posicion]->setNombre(nombre);
+					}
+					if(eleccion==2){
+						cout<<"Ingrese Usuario"<<endl;
+						string usuario;
+						cin>>usuario;
+						ls_persona[posicion]->setUsuario(usuario);
+					}
+					if(eleccion==3){
+						cout<<"Ingrese Password"<<endl;
+						string password;
+						cin>>password;
+						ls_persona[posicion]->setPassword(password);
+					}
+					if(eleccion==4){
+						cout<<"Ingrese Edad"<<endl;
+						int edad;
+						cin>>edad;
+						ls_persona[posicion]->setEdad(edad);
+					}
+					if(eleccion==5){
+						cout<<"Ingrese Id"<<endl;
+						string id;
+						cin>>id;
+						ls_persona[posicion]->setId(id);
+					}
+					if(eleccion==6){
+						cout<<"Ingrese Fecha"<<endl;
+						string fecha;
+						cin>>fecha;
+						ls_persona[posicion]->setFecha(fecha);
+					}
+					if(typeid(*ls_persona[posicion]).name()==typeid(Administrativo).name()){
+						if(eleccion==7){
+							cout<<"Ingrese Clave"<<endl;
+							string clave;
+							cin>> clave;
+							dynamic_cast<Administrativo*>(ls_persona[posicion])->setClave(clave);
+						}
+					if(eleccion==7){
+						cout<<"Ingrese Puesto"<<endl;
+						string puesto;
+						cin>> puesto;
+						dynamic_cast<Administrativo*>(ls_persona[posicion])->setPuesto(puesto);
+
+					}
+				}
 
 				}else if(opcion3==2){
+                                        int posicion;
+					for(int i=0;i<ls_persona.size(); i++){
+						if(typeid(*ls_persona[i]).name()==typeid(Investigador).name())
+							cout<<ls_persona[i]->toString()<<endl;
+					}
+					cout<<"Seleccione la posicion a modificar"<<endl;
+					cin>>posicion;
+					int eleccion;
+
+					cout<<"1.Nombre\n2.Usuario\n3.Password\n4.Edad\n5.Id\n6.Fecha\n7.Numero de Casos\n8.Casos"<<"Cerrados\n9.Casos sin Resol					ver"<<endl;
+					cin>>eleccion;
+					if(eleccion==1){
+						cout<<"Ingrese Nombre"<<endl;
+						string nombre;
+						cin>>nombre;
+						ls_persona[posicion]->setNombre(nombre);
+					}
+					if(eleccion==2){
+						cout<<"Ingrese Usuario"<<endl;
+						string usuario;
+						cin>>usuario;
+						ls_persona[posicion]->setUsuario(usuario);
+					}
+					if(eleccion==3){
+						cout<<"Ingrese Password"<<endl;
+						string password;
+						cin>>password;
+						ls_persona[posicion]->setPassword(password);
+					}
+					if(eleccion==4){
+						cout<<"Ingrese Edad"<<endl;
+						int edad;
+						cin>>edad;
+						ls_persona[posicion]->setEdad(edad);
+					}
+					if(eleccion==5){
+						cout<<"Ingrese Id"<<endl;
+						string id;
+						cin>>id;
+						ls_persona[posicion]->setId(id);
+					}
+					if(eleccion==6){
+						cout<<"Ingrese Fecha"<<endl;
+						string fecha;
+						cin>>fecha;
+						ls_persona[posicion]->setFecha(fecha);
+					}
+					if(typeid(*ls_persona[posicion]).name()==typeid(Investigador).name()){
+						if(eleccion==7){
+							cout<<"Ingrese numero de casos"<<endl;
+							int numerocasos;
+							cin>>numerocasos;
+							dynamic_cast<Investigador*>(ls_persona[posicion])->setNumerocasos(numerocasos);
+							
+						}
+					     	if(eleccion==8){
+							cout<<"Ingrese casos cerrados"<<endl;
+							int cerrados;
+							cin>>cerrados;
+							dynamic_cast<Investigador*>(ls_persona[posicion])->setCerrados(cerrados);
+							
+						}
+						if(eleccion==9){
+							cout<<"Ingrese casos sin resolver"<<endl;
+							int sinresolver;
+							cin>>sinresolver;
+							dynamic_cast<Investigador*>(ls_persona[posicion])->setSinResolver(sinresolver);
+							
+						}
+					}		
 
 				}else if(opcion3==3){
+					int posicion;
+					for(int i=0;i<ls_persona.size(); i++){
+						if(typeid(*ls_persona[i]).name()==typeid(Forense).name())
+							cout<<ls_persona[i]->toString()<<endl;
+					}
+					cout<<"Seleccione la posicion a modificar"<<endl;
+					cin>>posicion;
+					int eleccion;
+					//ingreso(ingreso),horario(horario)
+					cout<<"1.Nombre\n2.Usuario\n3.Password\n4.Edad\n5.Id\n6.Fecha\n7.Ingreso\n8.Horario"<<endl;
+					cin>>eleccion;
+					if(eleccion==1){
+						cout<<"Ingrese Nombre"<<endl;
+						string nombre;
+						cin>>nombre;
+						ls_persona[posicion]->setNombre(nombre);
+					}
+					if(eleccion==2){
+						cout<<"Ingrese Usuario"<<endl;
+						string usuario;
+						cin>>usuario;
+						ls_persona[posicion]->setUsuario(usuario);
+					}
+					if(eleccion==3){
+						cout<<"Ingrese Password"<<endl;
+						string password;
+						cin>>password;
+						ls_persona[posicion]->setPassword(password);
+					}
+					if(eleccion==4){
+						cout<<"Ingrese Edad"<<endl;
+						int edad;
+						cin>>edad;
+						ls_persona[posicion]->setEdad(edad);
+					}
+					if(eleccion==5){
+						cout<<"Ingrese Id"<<endl;
+						string id;
+						cin>>id;
+						ls_persona[posicion]->setId(id);
+					}
+					if(eleccion==6){
+						cout<<"Ingrese Fecha"<<endl;
+						string fecha;
+						cin>>fecha;
+						ls_persona[posicion]->setFecha(fecha);
+					}
+
+					if(typeid(*ls_persona[posicion]).name()==typeid(Forense).name()){
+						if(eleccion==7){
+							cout<<"Ingrese el ingreso"<<endl;
+							string ingreso;
+							cin>>ingreso;	
+							dynamic_cast<Forense*>(ls_persona[posicion])->setIngreso(ingreso);
+						}
+						if(eleccion==8){
+							cout<<"Ingrese el horario"<<endl;
+							string horario;
+							cin>>horario;
+							dynamic_cast<Forense*>(ls_persona[posicion])->setHorario(horario);
+						}
+
+					}
 
 				}else{
 					cout<<"OPCION NO ENCONTRADA"<<endl;

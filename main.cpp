@@ -116,13 +116,25 @@ int main(int argc,char* argv[]){
 				cin>>opcion3;
 				//opcion nivel 3
 				if(opcion3==1){
-						string nombre,tipo,lugar;
-						int huella,evidencia;
+						string nombre,lugar,objeto1;
+						int huella,evidencia,tipo;
 						bool verdadero;
 						cout<<"Ingrese el nombre: "<<endl;
 						getline(cin,nombre);
-						cout<<"ingrese tipo de objeto: "<<endl;
-						getline(cin,tipo);
+  						
+						///////////////////////////////////
+						cout<<"1-Arma de fuego "<<endl;
+						cout<<"2.Arma blanca "<<endl;
+						cout<<"3-Evidencia circunstancial: "<<endl;
+						cout<<"Elija tipo de objeto: "<<endl;
+						cin>>tipo;
+						if(tipo==1){
+                            objeto1="Arma de fuego";
+						}else if(tipo==2){
+							objeto1="Arma blanca";
+						}else{
+							objeto1="Evidencia circunstancial:";
+						}
 						cout<<"Ingrese lugar donde se encontro el objeto: "<<endl;
 						getline(cin,lugar);
 						do{
@@ -134,9 +146,15 @@ int main(int argc,char* argv[]){
 								verdadero=false;
 						}
 					   }while(huella !=2  && huella != 1);
-						cout<<"Fue procesada la evidencia"<<endl;
+						cout<<"Fue procesada la evidencia 1/S 0/n "<<endl;
 						cin>>evidencia;
-						ls_evidencias.push_back(new Evidencia(nombre,tipo,lugar,verdadero,true));
+						bool si;
+						if(evidencia==1){
+                             si=true;
+						}else{
+							si=false;
+						}
+						ls_evidencias.push_back(new Evidencia(nombre,objeto1,lugar,verdadero,si));
 
 
 				}else{

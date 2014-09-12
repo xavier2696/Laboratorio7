@@ -1,11 +1,17 @@
 #include "Homicidio.h"
 #include <string>
 #include <sstream>
-
+#include <vector>
+using std::vector;
 using std::string;
 using std::stringstream;
 
-Homicidio::Homicidio(int numero,vector<Evidencia> evidencias, string fecha, string hora,bool cerrado,vector<string> nombres ,string sospechoso ,string victima):Caso(numero,evidencias,fecha,hora,cerrado),nombres(nombres),sospechoso(sospechoso),victima(victima){}
+Homicidio::Homicidio(int numero,vector<Evidencia*> evidencias, string fecha, string hora,bool cerrado,vector<std::string> nombres ,
+std::string sospechoso ,string victima):Caso(numero,evidencias,fecha,hora,cerrado){
+		this->nombres=nombres;
+		this->sospechoso=sospechoso;
+		this->victima=victima;
+	}
 
 
 string Homicidio::toString() const{
@@ -13,7 +19,7 @@ string Homicidio::toString() const{
 	ss<<"Caso Numero: "<<getNumero();
 	ss<<"\nEvidencias: ";
 	for (int i = 0; i<getEvidencias().size(); i++){
-		ss<<getEvidencias()[i].getnombre()<<", ";	
+		ss<<getEvidencias()[i]->getnombre()<<", ";	
 	}
 	ss<<"\nFecha: "<<getFecha()<<"\nHora: "<<getHora()<<"Cerrado: "<<isCerrado()?"Si":"No";
 	ss<<"\nNombres Sospechosos: ";

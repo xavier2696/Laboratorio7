@@ -12,6 +12,7 @@ class Persona{
 	public:
 	Persona(string,string,string,int,string,string);
 	virtual string toString() const;
+	string getNombre()const;
 	string getUsuario()const;
 	string getPassword()const;
 	int getEdad()const;

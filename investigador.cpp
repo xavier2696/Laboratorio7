@@ -1,4 +1,5 @@
 #include "persona.h"
+#include "investigador.h"
 #include<sstream>
 #include<string>
 Investigador::Investigador(string nombre,string usuario,string password,int edad,

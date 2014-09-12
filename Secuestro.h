@@ -12,7 +12,7 @@ class Secuestro:public Caso{
 	int cantidad;
 	bool vivo;
   public:
-	Secuestro(int,vector<Evidencia>, string, string ,bool,string,string,string,bool,int,bool);
+	Secuestro(int,vector<Evidencia*>, string, string ,bool,string,string,string,bool,int,bool);
 	virtual string toString() const;
 	string getVictima() const;
 	string getMotivo() const;

@@ -1,16 +1,9 @@
 #pragma once
 #include "persona.h"
-<<<<<<< HEAD
 #include<string>
-using namespace std;
-class Investigador: public Persona{
-=======
-#include "Caso.h"
-#include <string>
 using namespace std;
 
 class Investigador : public Persona {
->>>>>>> 168988423e814213e70ab32a48a8095f9e44c4d0
 	int numerocasos;
 	int cerrados;
 	int sinresolver;

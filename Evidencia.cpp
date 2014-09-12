@@ -45,6 +45,6 @@ using namespace std;
 	//tostrinh
 	string Evidencia::toString()const{
 		stringstream ss;
-		ss<<nombre<<tipo_objeto<<lugar_encontrado<<huella<<procesada;
+		ss<<nombre<<tipo_objeto<<" "<<lugar_encontrado<<" "<<huella<<" "<<procesada;
 		return ss.str();
 	}

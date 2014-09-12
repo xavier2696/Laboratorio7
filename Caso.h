@@ -3,6 +3,7 @@
 
 #include "persona.h"
 #include "Evidencias.h"
+#include <string>
 #include <vector>
 using namespace std;
 using std::string;

@@ -1,7 +1,6 @@
 #pragma once
 #include "persona.h"
-#include "Caso.h"
-#include <string>
+#include<string>
 using namespace std;
 
 class Investigador : public Persona {
@@ -17,5 +16,4 @@ class Investigador : public Persona {
 	void setNumerocasos(int);
 	void setCerrados(int);
 	void setSinResolver(int);
-	virtual void visualizar(const Caso*);
 };

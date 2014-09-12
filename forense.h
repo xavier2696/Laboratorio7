@@ -1,5 +1,4 @@
 #include "persona.h"
-#include "Caso.h"
 #include<string>
 using namespace std;
 class Forense:public Persona{
@@ -12,5 +11,5 @@ class Forense:public Persona{
 	string getHorario()const;
 	void setIngreso(string);
 	void setHorario(string);
-	virtual void visualizar(const Caso*);
+
 };

@@ -1,6 +1,5 @@
 #include "persona.h"
 #include "forense.h"
-#include "Caso.h"
 #include<sstream>
 #include<string>
 #include<typeinfo>
@@ -23,9 +22,4 @@ void Forense::setIngreso(string ingreso){
 void Forense::setHorario(string horario){
 	this->horario=horario;
 }
-void Forense:: visualizar(Caso *c){
-	if(typeid(c)==typeid(Homicidio*)
-		cout<<c->toString()<<endl
-		if(typeid(c)==typeid(Homicidio*)
-			cout<<c->toString()<<endl;
-}
+
